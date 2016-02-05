@@ -8,7 +8,7 @@ To add this library to your project, simply add a dependency on `niranjan94/payu
 
     {
         "require": {
-            "niranjan94/payumoney": "^0.3"
+            "niranjan94/payumoney": "dev-master"
         }
     }
     
