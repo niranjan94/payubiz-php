@@ -7,9 +7,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PayUMoney
 {
-    const TEST_URL = 'https://test.payu.in/_payment.php';
+    const TEST_URL = 'https://test.payu.in/_payment';
 
-    const PRODUCTION_URL = 'https://secure.payu.in/_payment.php';
+    const PRODUCTION_URL = 'https://secure.payu.in/_payment';
 
     /**
      * @var string
