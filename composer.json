@@ -19,7 +19,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "CodeZero\\PayUbiz\\": "src/"
+      "CodeZero\\PayUMoney\\": "src/"
     }
   },
   "require": {
