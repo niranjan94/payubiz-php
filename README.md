@@ -1,14 +1,14 @@
-# PayUbiz API for PHP
+# PayUMoney API for PHP
 
-Simple library for accepting payments via [PayUbiz](https://www.payu.in/).
+Simple library for accepting payments via [PayUMoney](https://www.payumoney.com/).
 
 ## Installation
 
-To add this library to your project, simply add a dependency on `v3labs/payubiz` to your project's `composer.json` file. Here is a minimal example of a composer.json file:
+To add this library to your project, simply add a dependency on `niranjan94/payumoney` to your project's `composer.json` file. Here is a minimal example of a composer.json file:
 
     {
         "require": {
-            "v3labs/payubiz": "^0.3"
+            "niranjan94/payumoney": "^0.3"
         }
     }
     
@@ -22,11 +22,11 @@ You'll find a minimal usage example below.
 <?php
 // purchase.php
 
-use V3labs\PayUbiz\PayUbiz;
+use Codezero\PayUMoney\PayUMoney;
 
 require 'vendor/autoload.php';
 
-$payubiz = new PayUbiz(array(
+$payumoney = new PayUMoney(array(
     'merchantId' => 'YOUR_MERCHANT_ID',
     'secretKey'  => 'YOUR_SECRET_KEY',
     'testMode'   => true
@@ -44,7 +44,7 @@ $params = [
     'furl'        => 'http://localhost/payubiz-php/return.php',
 ];
 
-// Redirects to PayUbiz
+// Redirects to PayUMoney
 $client->initializePurchase($params)->send();
 ```
 
@@ -54,19 +54,19 @@ $client->initializePurchase($params)->send();
 <?php
 // return.php
 
-use V3labs\PayUbiz\PayUbiz;
+use Codezero\PayUMoney\PayUMoney;
 
 require 'vendor/autoload.php';
 
-$payubiz = new PayUbiz([
+$payumoney = new PayUMoney([
     'merchantId' => 'YOUR_MERCHANT_ID',
     'secretKey'  => 'YOUR_SECRET_KEY',
     'testMode'   => true
 ]);
 
-$result = $payubiz->completePurchase($_POST);
+$result = $payumoney->completePurchase($_POST);
 
-if ($result->checksumIsValid() && $result->getStatus() === PayUbiz::STATUS_COMPLETED) {
+if ($result->checksumIsValid() && $result->getStatus() === PayUMoney::STATUS_COMPLETED) {
   print 'Payment was successful.';
 } else {
   print 'Payment was not successful.';
@@ -76,7 +76,7 @@ if ($result->checksumIsValid() && $result->getStatus() === PayUbiz::STATUS_COMPL
 The `PurchaseResult` has a few more methods that might be useful:
 
 ```php
-$result = $payubiz->completePurchase($_POST);
+$result = $payumoney->completePurchase($_POST);
 
 // Returns Complete, Pending, Failed or Tampered
 $result->getStatus(); 
