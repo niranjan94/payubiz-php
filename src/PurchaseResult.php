@@ -1,6 +1,6 @@
 <?php
 
-namespace V3labs\PayUbiz;
+namespace CodeZero\PayUMoney;
 
 class PurchaseResult
 {
@@ -9,13 +9,13 @@ class PurchaseResult
     const STATUS_FAILED    = 'Failed';
     const STATUS_TAMPERED  = 'Tampered';
 
-    /** @var PayUbiz */
+    /** @var PayUMoney */
     private $client;
 
     /** @var array */
     private $params;
 
-    public function __construct(PayUbiz $client, array $params)
+    public function __construct(PayUMoney $client, array $params)
     {
         $this->client = $client;
         $this->params = $params;

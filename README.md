@@ -22,7 +22,7 @@ You'll find a minimal usage example below.
 <?php
 // purchase.php
 
-use Codezero\PayUMoney\PayUMoney;
+use CodeZero\PayUMoney\PayUMoney;
 
 require 'vendor/autoload.php';
 
@@ -54,7 +54,7 @@ $client->initializePurchase($params)->send();
 <?php
 // return.php
 
-use Codezero\PayUMoney\PayUMoney;
+use CodeZero\PayUMoney\PayUMoney;
 
 require 'vendor/autoload.php';
 

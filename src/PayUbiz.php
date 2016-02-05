@@ -1,11 +1,11 @@
 <?php
 
-namespace V3labs\PayUbiz;
+namespace CodeZero\PayUMoney;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PayUbiz
+class PayUMoney
 {
     const TEST_URL = 'https://test.payu.in/_payment.php';
 
@@ -128,8 +128,10 @@ class PayUbiz
             $output .= sprintf('<input type="hidden" name="%s" value="%s" />', $key, $value);
         }
 
+        $output .= '<input type="hidden" name="service_provider" value="payu_paisa" size="64" />';
+
         $output .= '<div id="redirect_info" style="display: none">Redirecting...</div>
-                <input id="payment_form_submit" type="submit" value="Proceed to PayUbiz" />
+                <input id="payment_form_submit" type="submit" value="Proceed to PayUMoney" />
             </form>
             <script>
                 document.getElementById(\'redirect_info\').style.display = \'block\';

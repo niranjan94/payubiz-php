@@ -1,8 +1,8 @@
 {
-  "name": "v3labs/payubiz",
-  "description": "PayUbiz library for PHP",
-  "keywords": ["payu", "payuindia", "payubiz"],
-  "homepage": "http://github.com/v3labs/payubiz-php",
+  "name": "niranjan94/payumoney",
+  "description": "PayUMoney library for PHP",
+  "keywords": ["payu", "payuindia", "payumoney"],
+  "homepage": "http://github.com/niranjan94/payumoney-php",
   "type": "library",
   "license": "MIT",
   "authors": [
@@ -10,11 +10,16 @@
       "name": "Vladislav Veselinov",
       "email": "vladislav@v3labs.com",
       "homepage": "http://github.com/v3labs"
+    },
+    {
+      "name": "Niranjan R",
+      "email": "niranjan94@yahoo.com",
+      "homepage": "https://www.codezero.xyz"
     }
   ],
   "autoload": {
     "psr-4": {
-      "V3labs\\PayUbiz\\": "src/"
+      "CodeZero\\PayUbiz\\": "src/"
     }
   },
   "require": {
