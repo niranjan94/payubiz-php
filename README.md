@@ -8,7 +8,7 @@ To add this library to your project, simply add a dependency on `niranjan94/payu
 
     {
         "require": {
-            "niranjan94/payumoney": "dev-master"
+            "niranjan94/payumoney": "1.*"
         }
     }
     
@@ -40,8 +40,8 @@ $params = [
     'firstname'   => 'Peter',
     'email'       => 'abc@example.com',
     'phone'       => '1234567890',
-    'surl'        => 'http://localhost/payubiz-php/return.php',
-    'furl'        => 'http://localhost/payubiz-php/return.php',
+    'surl'        => 'http://localhost/payumoney-php/return.php',
+    'furl'        => 'http://localhost/payumoney-php/return.php',
 ];
 
 // Redirects to PayUMoney
