@@ -5,9 +5,9 @@ namespace CodeZero\PayUMoney;
 class PurchaseResult
 {
     const STATUS_COMPLETED = 'Completed';
-    const STATUS_PENDING   = 'Pending';
-    const STATUS_FAILED    = 'Failed';
-    const STATUS_TAMPERED  = 'Tampered';
+    const STATUS_PENDING = 'Pending';
+    const STATUS_FAILED = 'Failed';
+    const STATUS_TAMPERED = 'Tampered';
 
     /** @var PayUMoney */
     private $client;
@@ -56,7 +56,7 @@ class PurchaseResult
      */
     public function getTransactionId()
     {
-        return isset($this->params['mihpayid']) ? (string)$this->params['mihpayid'] : null;
+        return isset($this->params['mihpayid']) ? (string) $this->params['mihpayid'] : null;
     }
 
     /**
@@ -64,7 +64,7 @@ class PurchaseResult
      */
     public function getTransactionStatus()
     {
-        return isset($this->params['status']) ? (string)$this->params['status'] : null;
+        return isset($this->params['status']) ? (string) $this->params['status'] : null;
     }
 
     /**
@@ -72,7 +72,7 @@ class PurchaseResult
      */
     public function getChecksum()
     {
-        return isset($this->params['hash']) ? (string)$this->params['hash'] : null;
+        return isset($this->params['hash']) ? (string) $this->params['hash'] : null;
     }
 
     /**
@@ -85,7 +85,7 @@ class PurchaseResult
         $params = array_merge($this->params, ['salt' => $this->client->getSecretKey()]);
 
         $values = array_map(
-            function($paramName) use ($params) {
+            function ($paramName) use ($params) {
                 return array_key_exists($paramName, $params) ? $params[$paramName] : '';
             },
             $checksumParams
