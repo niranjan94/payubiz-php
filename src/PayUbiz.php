@@ -5,7 +5,7 @@ namespace CodeZero\PayUMoney;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PayUMoney
+class PayUbiz
 {
     const TEST_URL = 'https://test.payu.in/_payment';
 
@@ -41,8 +41,8 @@ class PayUMoney
         $options = $resolver->resolve($options);
 
         $this->merchantId = $options['merchantId'];
-        $this->secretKey  = $options['secretKey'];
-        $this->testMode   = $options['testMode'];
+        $this->secretKey = $options['secretKey'];
+        $this->testMode = $options['testMode'];
     }
 
     /**
@@ -84,18 +84,23 @@ class PayUMoney
     {
         return array_merge(
             ['txnid', 'amount', 'productinfo', 'firstname', 'email'],
-            array_map(function($i) { return "udf{$i}"; }, range(1, 10))
+            array_map(function ($i) {
+                return "udf{$i}";
+            }, range(1, 10))
         );
     }
 
     /**
      * @param array $params
+     *
      * @return string
      */
     private function getChecksum(array $params)
     {
         $values = array_map(
-            function($field) use ($params) { return isset($params[$field]) ? $params[$field] : ''; },
+            function ($field) use ($params) {
+                return isset($params[$field]) ? $params[$field] : '';
+            },
             $this->getChecksumParams()
         );
 
@@ -106,8 +111,10 @@ class PayUMoney
 
     /**
      * @param array $params
-     * @return Response
+     *
      * @throws \InvalidArgumentException
+     *
+     * @return Response
      */
     public function initializePurchase(array $params)
     {
@@ -120,7 +127,9 @@ class PayUMoney
         }
 
         $params = array_merge($params, ['hash' => $this->getChecksum($params), 'key' => $this->getMerchantId()]);
-        $params = array_map(function($param) { return htmlentities($param, ENT_QUOTES, 'UTF-8', false); }, $params);
+        $params = array_map(function ($param) {
+            return htmlentities($param, ENT_QUOTES, 'UTF-8', false);
+        }, $params);
 
         $output = sprintf('<form id="payment_form" method="POST" action="%s">', $this->getServiceUrl());
 
@@ -140,7 +149,7 @@ class PayUMoney
             </script>';
 
         return Response::create($output, 200, [
-            'Content-type' => 'text/html; charset=utf-8'
+            'Content-type' => 'text/html; charset=utf-8',
         ]);
     }
 
