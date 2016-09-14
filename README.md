@@ -1,3 +1,5 @@
+[![StyleCI](https://styleci.io/repos/51137750/shield)](https://styleci.io/repos/51137750)
+
 # PayUMoney API for PHP
 
 Simple library for accepting payments via [PayUMoney](https://www.payumoney.com/).
