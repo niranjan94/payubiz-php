@@ -5,7 +5,7 @@ namespace CodeZero\PayUMoney;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PayUbiz
+class PayUMoney
 {
     const TEST_URL = 'https://test.payu.in/_payment';
 
