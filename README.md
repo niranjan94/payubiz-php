@@ -28,11 +28,11 @@ use CodeZero\PayUMoney\PayUMoney;
 
 require 'vendor/autoload.php';
 
-$payumoney = new PayUMoney(array(
+$payumoney = new PayUMoney([
     'merchantId' => 'YOUR_MERCHANT_ID',
     'secretKey'  => 'YOUR_SECRET_KEY',
     'testMode'   => true
-));
+]);
 
 // All of these parameters are required!
 $params = [
