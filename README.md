@@ -47,7 +47,7 @@ $params = [
 ];
 
 // Redirects to PayUMoney
-$client->initializePurchase($params)->send();
+$payumoney->initializePurchase($params)->send();
 ```
 
 ### Finalize purchase
