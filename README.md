@@ -57,6 +57,7 @@ $payumoney->initializePurchase($params)->send();
 // return.php
 
 use CodeZero\PayUMoney\PayUMoney;
+use CodeZero\PayUMoney\PurchaseResult;
 
 require 'vendor/autoload.php';
 
@@ -68,7 +69,7 @@ $payumoney = new PayUMoney([
 
 $result = $payumoney->completePurchase($_POST);
 
-if ($result->checksumIsValid() && $result->getStatus() === PayUMoney::STATUS_COMPLETED) {
+if ($result->checksumIsValid() && $result->getStatus() === PurchaseResult::STATUS_COMPLETED) {
   print 'Payment was successful.';
 } else {
   print 'Payment was not successful.';
